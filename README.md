@@ -20,10 +20,10 @@ This repository only gives the testing code and frozen pretrained model. For det
 If you use our model or code in your research, please cite the paper:
 
 ```
-@article{Mathur2017,
-  title={Camera2Caption: A Real-time Image Caption Generator},
-  author={Pranay Mathur and Aman Gill and Aayush Yadav and Anurag Mishra and Nand Kumar Bansode},
-  journal={IEEE Conference Publication},
-  year={2017}
+@article{InterpretFR2018,
+  title={Towards Interpretable Face recognition},
+  author={Bangjie Yin and Luan Tran and Haoxiang Li and Xiaohui Shen and Xiaoming Liu},
+  booktitle={arXiv preprint arXiv:1805.00611},
+  year={2018}
 }
 ```
