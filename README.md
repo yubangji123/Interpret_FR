@@ -20,7 +20,7 @@ This repository only gives the testing code and frozen pretrained model. For det
 If you use our model or code in your research, please cite the paper:
 
 ```
-@article{InterpretFR2018,
+@inproceedings{InterpretFR2018,
   title={Towards Interpretable Face recognition},
   author={Bangjie Yin and Luan Tran and Haoxiang Li and Xiaohui Shen and Xiaoming Liu},
   booktitle={arXiv preprint arXiv:1805.00611},
