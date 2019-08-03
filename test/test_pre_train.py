@@ -5,7 +5,7 @@ import numpy as np
 def load_IJBA_recrop_test(isFlip = False):
     print('Loading IJBA recrop...')
 
-    fd = open('DATA/IJBA_recrop_images_96_96_test.dat')
+    fd = open('../DATA/IJBA_recrop_images_96_96_test.dat')
     images = np.fromfile(file=fd,dtype=np.uint8)
     fd.close()
 
