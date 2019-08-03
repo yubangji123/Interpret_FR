@@ -29,7 +29,7 @@ def load_graph(frozen_graph_filename):
 if __name__ == '__main__':
 
     # We use our "load_graph" function
-    graph = load_graph('o_loss_random_260_GTmsk_vector/pretrained_model.pb')
+    graph = load_graph('models/pretrained_model.pb')
 
     # We can verify that we can access the list of operations in the graph
     for op in graph.get_operations():

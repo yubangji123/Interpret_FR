@@ -5,8 +5,8 @@ This repository only gives the testing code and frozen pretrained model. For det
 ## Pre-Requisites:
 1. Tensorflow r1.0 or higher version
 2. Python 2.7/3.6
-3. Download IJB-A database [here]()
-4. Download auxiliary files  [here]() and  [here]()
+3. Download IJB-A database [here](https://pan.baidu.com/s/1Z_C0bD9MhBfGc9jw6K26ow)
+4. Download auxiliary files  [here](https://pan.baidu.com/s/1R50FWhQNVXtvHzIy50Onow) and  [here](https://pan.baidu.com/s/13cswNI8fhn2SZIpolNYZPQ)
 
 ## Procedure to Reproduce the Results:
 1. Clone the Repository to preserve Directory Structure

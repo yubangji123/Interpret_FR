@@ -36,6 +36,6 @@ def freeze_graph(model_dir, output_node_names):
 
 if __name__ == '__main__':
 
-    model_dir = 'o_loss_random_260_GTmsk_vector'
+    model_dir = 'models'
     output_node_names = 'sample_input_images,Reshape_134,Mul_2'
     freeze_graph(model_dir, output_node_names)
