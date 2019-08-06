@@ -26,8 +26,8 @@ def load_graph(frozen_graph_filename):
 
     return graph
 
-if __name__ == '__main__':
-
+# Extract features for evaluation
+def extract_features_for_eval():
     # We use our "load_graph" function
     graph = load_graph('models/pretrained_model.pb')
 
@@ -48,9 +48,47 @@ if __name__ == '__main__':
     with tf.Session(graph=graph) as sess:
         for idx in range(N):
             print(idx)
-            batch_img = np.array(images[idx, :, :, :]).astype(np.float32).reshape( (1, 96, 96, 3))
-            gallery_feature = sess.run(sample_feature, feed_dict={sample_input_images:  batch_img})
+            batch_img = np.array(images[idx, :, :, :]).astype(np.float32).reshape((1, 96, 96, 3))
+            gallery_feature = sess.run(sample_feature, feed_dict={sample_input_images: batch_img})
             gallery_features[idx, :] = gallery_feature
 
     np.savetxt("IJBA_features_iter_0.txt", gallery_features)
     print("Writed to IJBA_features_iter_0.txt")
+
+# Extract feature maps for evaluation
+def extract_feature_maps_for_eval():
+    # We use our "load_graph" function
+    graph = load_graph('models/pretrained_model.pb')
+
+    # We can verify that we can access the list of operations in the graph
+    for op in graph.get_operations():
+        print(op.name)
+
+    # We access the input and output nodes
+    sample_input_images = graph.get_tensor_by_name('import/sample_input_images:0')
+    sample_k5 = graph.get_tensor_by_name('import/Mul_2:0')
+
+    # Get test input images
+    images = load_IJBA_recrop_test()
+    N = 1000
+    gallery_features = np.zeros((N, 24 * 24 * 320), dtype=np.float32)
+
+    # We launch a Session
+    with tf.Session(graph=graph) as sess:
+        for idx in range(N):
+            print(idx)
+            batch_img = np.array(images[idx, :, :, :]).astype(np.float32).reshape((1, 96, 96, 3))
+
+            gallery_feature = sess.run(sample_k5, feed_dict={sample_input_images: batch_img})
+
+            gallery_feature = np.reshape(gallery_feature, [24 * 24, 320])
+            gallery_feature = np.reshape(gallery_feature, [24 * 24 * 320])
+
+            gallery_features[idx, :] = gallery_feature
+
+    np.savetxt("IJBA_feature_maps_ours.txt", gallery_features)
+    print("Writed to IJBA_feature_maps_ours.txt")
+
+if __name__ == '__main__':
+    #extract_features_for_eval()
+    extract_feature_maps_for_eval()
