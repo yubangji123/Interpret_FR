@@ -11,7 +11,6 @@ import tensorflow.contrib.slim as slim
 import numpy as np
 import scipy.io as sio
 from six.moves import xrange
-#from progress.bar import Bar
 from ops import *
 from utils import *
 
