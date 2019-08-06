@@ -13,7 +13,7 @@ This repository will give the training and evaluation code for the interpretable
 ## Procedure to training the model:
 1. Download the [model](https://pan.baidu.com/s/1tjyzS8Nb22MK45ymRYF2ag), unzip it and put the models in **/train/Interp_FR/CASIA_64_96_32_320_32_320/** directory.
 2. Unzip the auxiliary files for training, and put all the **.mat** files in **/train/** directory.
-2. For IJB-A, put **CASIA_all_images_110_110.DAT** and **CASIA_recrop_fileList.DAT** in **DATA** folder.
+2. For training data, put **CASIA_all_images_110_110.DAT** and **CASIA_recrop_fileList.DAT** in **DATA** folder.
 3. Within the training folder, you can start to train the model through: `python main_pretrain_CASIA.py --dataset CASIA --batch_size 64 --is_train True --learning_rate 0.001 --image_size 96 --is_with_y True --gf_dim 32 --df_dim 32 --dfc_dim 320 --gfc_dim 320 --z_dim 20 --checkpoint_dir ./Interp_FR --gpu 0`.
 
 
