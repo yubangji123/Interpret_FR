@@ -17,12 +17,21 @@ This repository will give the training and evaluation code for the interpretable
 3. Within the training folder, you can start to train the model through: `python main_pretrain_CASIA.py --dataset CASIA --batch_size 64 --is_train True --learning_rate 0.001 --image_size 96 --is_with_y True --gf_dim 32 --df_dim 32 --dfc_dim 320 --gfc_dim 320 --z_dim 20 --checkpoint_dir ./Interp_FR --gpu 0`.
 
 
-## Procedure to Reproduce the Results:
+## Procedure to evaluation and visualization:
+Evaluate the face recognition performance:
 1. Clone the Repository to preserve Directory Structure
 2. For IJB-A, put **IJBA_recrop_images_96_96_test.DAT** in **DATA** folder.
 3. Generate features(features.npy) corresponding to the images in the dataset folder by running: `python test_pre_train.py`.
-4. After step 3, you will get a **.txt** file, which contains all the face features.  To evaluate the results, you should put the auxiliary files **dataset.mat** and **IJBA_crop.mat** in **/test/eval/IJB-A/** directory.
+4. After step 3, you will get a **IJBA_features_iter_0.txt** file, which contains all the face features.  To evaluate the results, you should put the auxiliary files **dataset.mat** and **IJBA_crop.mat** in **/test/eval/IJB-A/** directory.
 5. By runing the **CNN_single_verify.m** and **CNN_single_search.m** script files, you will get the verification and identification results on IJB-A.
+
+Visualize the average locations of peak response:
+1. Clone the Repository to preserve Directory Structure
+2. For IJB-A, put **IJBA_recrop_images_96_96_test.DAT** in **DATA** folder.
+3. Generate features(features.npy) corresponding to the images in the dataset folder by running: `python test_pre_train.py`, you should comment the line `extract_features_for_eval()`. In this repository, we only frozen ours model, for base CNN and spatial only models, you can use the provided **freeze_my_model.py** to freeze the required models.
+4. After step 3, you will get a **IJBA_feature_maps*.txt** file, which contains all the face feature maps.  To evaluate the results, you should put all three needed **.txt** files in **/test/visualization/** directory.
+5. By runing the **average_location.m** script files, you will get 3 figures for the average locations of the models.
+
 
 ## Citation:
 

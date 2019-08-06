@@ -90,5 +90,5 @@ def extract_feature_maps_for_eval():
     print("Writed to IJBA_feature_maps_ours.txt")
 
 if __name__ == '__main__':
-    #extract_features_for_eval()
-    extract_feature_maps_for_eval()
+    extract_features_for_eval()
+    #extract_feature_maps_for_eval()
