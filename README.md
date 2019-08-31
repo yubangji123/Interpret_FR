@@ -5,13 +5,13 @@ This repository will give the training and evaluation code for the interpretable
 ## Pre-Requisites:
 1. Tensorflow r1.0 or higher version
 2. Python 2.7/3.6
-3. Download CASIA-Webface training database [here](https://pan.baidu.com/s/19usJ4vjh__xVbmTv_GZUmQ) and  [here](https://pan.baidu.com/s/1Alm6gI-h5NaD5LEeUzPTZQ)
-4. Download IJB-A testing database [here](https://pan.baidu.com/s/1Z_C0bD9MhBfGc9jw6K26ow)
-5. Download auxiliary files for training  [here](https://pan.baidu.com/s/1_trzUM5rvphwVxYRKvc5UQ)
-6. Download auxiliary files for evaluation  [here](https://pan.baidu.com/s/1R50FWhQNVXtvHzIy50Onow) and  [here](https://pan.baidu.com/s/13cswNI8fhn2SZIpolNYZPQ)
+3. Download CASIA-Webface training database [here](https://www.cse.msu.edu/computervision/bj_CASIA_all_images_110_110.dat.zip) and  [here](https://www.cse.msu.edu/computervision/bj_CASIA_recrop_fileList.dat.zip)
+4. Download IJB-A testing database [here](https://www.cse.msu.edu/computervision/bj_IJBA_recrop_images_96_96_test.dat.zip)
+5. Download auxiliary files for training  [here](https://www.cse.msu.edu/computervision/bj_matlab_data.zip)
+6. Download auxiliary files for evaluation  [here](https://www.cse.msu.edu/computervision/bj_IJBA_crop.mat.zip) and  [here](https://www.cse.msu.edu/computervision/bj_dataset.mat.zip)
 
 ## Procedure to training the model:
-1. Download the [model](https://pan.baidu.com/s/1tjyzS8Nb22MK45ymRYF2ag), unzip it and put the models in **/train/Interp_FR/CASIA_64_96_32_320_32_320/** directory.
+1. Download the [model](https://www.cse.msu.edu/computervision/bj_pretrained_models.zip), unzip it and put the models in **/train/Interp_FR/CASIA_64_96_32_320_32_320/** directory.
 2. Unzip the auxiliary files for training, and put all the **.mat** files in **/train/** directory.
 2. For training data, put **CASIA_all_images_110_110.DAT** and **CASIA_recrop_fileList.DAT** in **DATA** folder.
 3. Within the training folder, you can start to train the model through: `python main_pretrain_CASIA.py --dataset CASIA --batch_size 64 --is_train True --learning_rate 0.001 --image_size 96 --is_with_y True --gf_dim 32 --df_dim 32 --dfc_dim 320 --gfc_dim 320 --z_dim 20 --checkpoint_dir ./Interp_FR --gpu 0`.
