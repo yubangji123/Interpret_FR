@@ -25,6 +25,14 @@ Evaluate the face recognition performance:
 4. After step 3, you will get a **IJBA_features_iter_0.txt** file, which contains all the face features.  To evaluate the results, you should put the auxiliary files **dataset.mat** and **IJBA_crop.mat** in **/test/eval/IJB-A/** directory.
 5. By runing the **CNN_single_verify.m** and **CNN_single_search.m** script files, you will get the verification and identification results on IJB-A.
 
+If you want to reproduce the results on natural and synthetic occluded faces, there are two ways: **create your own synthetic occlusions** and **filter all the natrual occluded faces from IJB-A/IJB-C**.
+
+During training, we randomly generate black window for each face image. Therefore, you can perform the same way on IJB-A benchmark to get your own synthetic testing faces. In **test\eval** directory, you can run the line: `python gen_syn_occl.py` and then a folder **IJB-A_occl** will be generated, which contains all the IJB-A synthetic occluded faces.
+
+For natural occlusion, both IJB-A and IJB-C have provided protocols, where we can derive the occlusion annotation information. In **test\eval** directory, we provided 2 **.m**, **CNN_single_verify_subset.m** and **CNN_single_search_subset.m**. After you obtained the **.txt** for IJB-A features, you can run them to evaluate the performance.
+
+Another interesting natural occlusion benchmark is AR database, we select all the face images with heavy occlusions, like sunglasses and scarf. Totally there are 810 images and the image list you can obtain also in **test\eval** directory, **ar_occl_list.txt**. In the paper, we randomly construct the same and different identity pairs to get the EER. You may repeat this process 10 or more times and then take the average number.
+
 Visualize the average locations of peak response:
 1. Clone the Repository to preserve Directory Structure
 2. For IJB-A, put **IJBA_recrop_images_96_96_test.DAT** in **DATA** folder.
